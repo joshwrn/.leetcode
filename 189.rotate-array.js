@@ -15,7 +15,10 @@ Output: [5,6,7,1,2,3,4]
  * @param {number} k
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var rotate = function (arr, a) {
-  // reverse 3 times
+// reverse all then split at k and reverse both sides
+var rotate = function (arr, k) {
+  const n = arr.length - 1;
+  let left = 0;
+  let right = k;
 };
 // @lc code=end

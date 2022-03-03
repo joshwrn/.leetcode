@@ -29,7 +29,6 @@ var isSameTree = function (p, q) {
     test(node1.right, node2.right);
   };
   test(p, q);
-  if (not === true) return true;
-  else return false;
+  return not;
 };
 // @lc code=end
