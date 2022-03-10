@@ -17,7 +17,23 @@
  * @param {ListNode} head
  * @return {boolean}
  */
+
+// recursive
 var hasCycle = function (head) {
+  if (!head || !head.next) return false;
+  return two(head, head.next.next);
+};
+
+const two = (slow, fast) => {
+  if (!fast || !fast.next) return false;
+  if (slow === fast) return true;
+
+  return two(slow.next, fast.next.next);
+};
+
+// iterative
+
+var hasCycleLoop = function (head) {
   if (!head || !head.next) return false;
   let slow = head;
   let fast = head.next.next;
