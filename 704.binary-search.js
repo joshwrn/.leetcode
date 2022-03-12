@@ -24,7 +24,6 @@ var search = function (nums, target) {
   let left = 0;
   while (left <= right) {
     const pivotIndex = Math.floor(left + (right - left) / 2);
-    console.log(pivotIndex);
     if (nums[pivotIndex] < target) {
       left = pivotIndex + 1;
     } else if (nums[pivotIndex] > target) {

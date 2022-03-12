@@ -33,7 +33,6 @@ var mergeTwoLists = function (list1, list2) {
   return node;
 };
 
-// console.log('t');
 // if (!l1 || !l2) return l1 || l2;
 
 // if (l1.val < l2.val) {
