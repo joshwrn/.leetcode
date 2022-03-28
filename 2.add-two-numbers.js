@@ -18,6 +18,9 @@
  * @return {ListNode}
  */
 
+// you end up modifying the original object when you assign dummy to head.
+// aka traverse the head node with dummy
+
 var addTwoNumbers = function (l1, l2) {
   let head = new ListNode();
   let dummy = head;
@@ -25,17 +28,15 @@ var addTwoNumbers = function (l1, l2) {
 
   while (l1 || l2 || carry) {
     if (!l1 && !l2) {
-      if (carry) {
-        dummy.next = new ListNode(Number(carry));
-        carry = 0;
-      }
+      dummy.next = new ListNode(carry);
+      carry = 0;
     } else {
       if (!l1) l1 = new ListNode(0);
       if (!l2) l2 = new ListNode(0);
-      const val = (l1.val + l2.val + Number(carry)).toString();
+      const val = (l1.val + l2.val + carry).toString();
 
       const add = Number(val[val.length - 1]);
-      carry = val >= 10 ? val.slice(0, -1) : 0;
+      carry = val >= 10 ? Number(val.slice(0, -1)) : 0;
 
       dummy.next = new ListNode(add);
       dummy = dummy.next;
