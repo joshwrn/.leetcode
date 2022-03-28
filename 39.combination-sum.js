@@ -10,7 +10,35 @@
  * @param {number} target
  * @return {number[][]}
  */
+
 var combinationSum = function (candidates, target) {
+  let res = [];
+  let temp = [];
+
+  const back = (curSum, ind) => {
+    if (curSum === target) {
+      res.push([...temp]);
+      return;
+    }
+    if (curSum > target || ind > candidates.length - 1) return;
+    temp.push(candidates[ind]);
+    curSum += candidates[ind];
+    back(curSum, ind);
+
+    temp.pop();
+    curSum -= candidates[ind];
+    back(curSum, ind + 1);
+  };
+
+  back(0, 0);
+
+  return res;
+};
+
+// @lc code=end
+
+// Wrong
+var oldCombinationSum = function (candidates, target) {
   let res = [];
   let temp = [];
 
@@ -38,5 +66,3 @@ var combinationSum = function (candidates, target) {
 
   return res;
 };
-
-// @lc code=end
