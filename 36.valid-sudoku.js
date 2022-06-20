@@ -9,7 +9,66 @@
  * @param {character[][]} board
  * @return {boolean}
  */
+
+// set version
 var isValidSudoku = function (board) {
+  let grids = new Set();
+  let rows = new Set();
+  let columns = new Set();
+
+  for (let i = 0; i < board.length; i++) {
+    const row = i + 1;
+    for (let j = 0; j < board[i].length; j++) {
+      if (board[i][j] !== '.') {
+        const curNumber = board[i][j];
+        const column = j + 1;
+        let grid;
+
+        const check = (col1, col2, r1, r2) => {
+          if (column >= col1 && column <= col2 && row >= r1 && row <= r2)
+            return true;
+          else return false;
+        };
+
+        if (check(1, 3, 1, 3)) {
+          grid = 1;
+        } else if (check(4, 6, 1, 3)) {
+          grid = 2;
+        } else if (check(7, 9, 1, 3)) {
+          grid = 3;
+        } else if (check(1, 3, 4, 6)) {
+          grid = 4;
+        } else if (check(4, 6, 4, 6)) {
+          grid = 5;
+        } else if (check(7, 9, 4, 6)) {
+          grid = 6;
+        } else if (check(1, 3, 7, 9)) {
+          grid = 7;
+        } else if (check(4, 6, 7, 9)) {
+          grid = 8;
+        } else if (check(7, 9, 7, 9)) {
+          grid = 9;
+        }
+
+        if (
+          rows.has(curNumber + row) ||
+          columns.has(curNumber + column) ||
+          grids.has(curNumber + grid)
+        ) {
+          return false;
+        } else {
+          rows.add(curNumber + row);
+          columns.add(curNumber + column);
+          grids.add(curNumber + grid);
+        }
+      }
+    }
+  }
+  return true;
+};
+
+// object/ array version
+var isValidSudokuOld = function (board) {
   const store = {};
   for (let i = 0; i < board.length; i++) {
     const row = i + 1;
