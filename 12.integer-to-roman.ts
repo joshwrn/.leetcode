@@ -59,6 +59,5 @@ const letters = {
 
 export { intToRoman }
 /* 
-Mistakes:
 - It would have been easier to hard-code each combination of numerals instead of accounting for them inside the function.
 */

@@ -36,6 +36,6 @@ const primeMap = [
 // @lc code=end
 
 /* 
-Mistakes:
-- Had to look up best way to create a unique number
+- Had to look up best way to create a unique number.
+- Could have sorted each word to get the same key instead.
 */
