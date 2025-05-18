@@ -1,5 +1,5 @@
 {
-  "name": ".leetcode",
+  "name": "leetcode",
   "private": true,
   "type": "module",
   "scripts": {

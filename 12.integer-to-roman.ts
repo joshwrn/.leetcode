@@ -41,8 +41,8 @@ function intToRoman(num: number): string {
   return numerals
 }
 
-const getLetter = (start: number, cur: number) => {
-  let num = start * Math.pow(10, cur - 1)
+const getLetter = (start: number, len: number) => {
+  let num = start * Math.pow(10, len - 1)
   return letters[num as keyof typeof letters]
 }
 
@@ -58,3 +58,7 @@ const letters = {
 // @lc code=end
 
 export { intToRoman }
+/* 
+Mistakes:
+- It would have been easier to hard-code each combination of numerals instead of accounting for them inside the function.
+*/
